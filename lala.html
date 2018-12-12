@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="persons.js"></script>
+		<script>	
+			
+// 			var lala = getData();
+// 			console.log(lala);
+// 			
+// 			var arr =[
+// 				{id:1,name:"小明",birth:"1818-2-2",city:"北京",salary:6000},
+// 				{id:2,name:"小华",birth:"1998-2-2",city:"上海",salary:6000},
+// 				{id:3,name:"大华",birth:"1999-2-2",city:"广州",salary:2000},
+// 				{id:4,name:"大大华",birth:"1898-12-2",city:"广西",salary:5500},
+// 				{id:5,name:"小小华",birth:"2000-2-22",city:"珠海",salary:3000},
+// 				{id:6,name:"小华华",birth:"2001-12-25",city:"海南",salary:4500}
+// 			];
+			
+			var arr = getData();
+			
+			// 过滤  得到 3000 到 3500 之内的工资的人
+			let s= arr.filter((e)=>{
+				return e.salary >=3000 && e.salary <= 3500;
+			});
+			console.log(s);	
+			//修改
+			let ss = arr.map((e)=>{
+				e.age = parseInt((new Date().getTime() - new Date(e.birth).getTime())/(1000*60*60*24*365));
+				return e;
+			});
+			//在原数据上修改
+// 			arr.forEach((item)=>{
+// 				item.age = parseInt((new Date().getTime() - new Date(item.birth).getTime())/(1000*60*60*24*365));
+// 			});
+			console.log(arr);
+			
+			
+			console.log(ss);
+			//打印城市
+// 			var arr1 = [];
+// 			for( let city of arr ){
+// 				arr1.push(
+// 				{name:city.name,city:city.city}
+// 				);
+// 			}
+// 			console.log(arr1);
+						
+			arr.forEach((e)=>{
+				console.log(e.name+":"+e.city);
+			});
+			
+			
+			
+			//计算所有人工资的总和
+			let ssss = arr.map((e)=>{return e.salary}).reduce((total,number)=>{ return total + number;} )
+			console.log(ssss);
+		</script>
+	</body>
+</html>
